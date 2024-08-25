@@ -1,110 +1,61 @@
-
 1. **Clone the Repository**
 
    ```bash
    git clone 'https://github.com/anuragrathour132002/Blogs-app-Frontend'
-   cd backend
+   cd frontend
    ```
 
 2. **Install Dependencies**
+
+   Using npm:
 
    ```bash
    npm install
    ```
 
-
-## Running the Server
-
-1. **Start the Server**
+   Or using yarn:
 
    ```bash
-   npm start
+   yarn install
    ```
 
-   This command starts the server and listens on the port specified in the `.env` file (default is 3001).
+## Running the Project
 
-## API Endpoints
+1. **Start the Development Server**
 
-### User Routes
+   Using npm:
 
-- **Sign Up**
-  
-  - `POST /user/signup`
-  - **Body**: `{ email: String, password: String }`
-  - **Description**: Creates a new user.
+   ```bash
+   npm run dev
+   ```
 
-- **Log In**
-  
-  - `POST /user/login`
-  - **Body**: `{ email: String, password: String }`
-  - **Description**: Authenticates a user and returns a token.
+   Or using yarn:
 
-- **Log Out**
-  
-  - `GET /user/logout`
-  - **Description**: Logs out the user and clears session data.
+   ```bash
+   yarn start
+   ```
 
-- **Get Current User**
-  
-  - `POST /user/currentUser`
-  - **Headers**: `{ Authorization: Bearer <token> }`
-  - **Description**: Retrieves the current logged-in user’s information.
+   This command starts the development server and opens the application in your default web browser.
 
-### Post Routes
+## Usage
 
-- **Create Post**
-  
-  - `POST /post/create-post/:userId`
-  - **Body**: `{ title: String, content: String }`
-  - **Params**: `userId`
-  - **Description**: Creates a new post for a user.
+### User Authentication
 
-- **View All Posts**
-  
-  - `GET /post/view-posts`
-  - **Description**: Retrieves all posts.
+- **Sign Up**: Send user data (e.g., email, password) to `/user/signup` to create a new account.
+- **Log In**: Send login credentials to `/user/login`. On successful authentication, a token is saved in localStorage.
+- **Log Out**: Make a request to `/user/logout` to clear user data and navigate to the home page.
 
-- **View Post by ID**
-  
-  - `GET /post/view-post/:id`
-  - **Params**: `id`
-  - **Description**: Retrieves a specific post by ID.
+### Post Management
 
-- **Update Post by ID**
-  
-  - `PUT /post/update-post/:id`
-  - **Params**: `id`
-  - **Body**: `{ title: String, content: String }`
-  - **Description**: Updates a specific post by ID.
+- **Create Post**: Send post data to `/post/create-post/{userId}` to create a new post.
+- **View Posts**: Fetch all posts from `/post/view-posts`.
+- **View Post by ID**: Fetch a specific post by ID from `/post/view-post/{postId}`.
+- **Update Post**: Update a post by sending updated data to `/post/update-post/{postId}`.
+- **Delete Post**: Delete a post by ID by sending a request to `/post/delete-post/{postId}`.
+- **Search Posts**: Filter posts based on the title by sending a search term to `/post/search?title={searchTerm}`.
 
-- **Delete Post by ID**
-  
-  - `DELETE /post/delete-post/:id`
-  - **Params**: `id`
-  - **Description**: Deletes a specific post by ID.
+### Comment Management
 
-- **Search Posts**
-  
-  - `GET /post/search`
-  - **Query**: `title=<search-term>`
-  - **Description**: Searches posts by title.
-
-- **Fetch Comments**
-  
-  - `GET /post/fetchComments/:postId`
-  - **Params**: `postId`
-  - **Description**: Fetches comments for a specific post.
-
-- **Add Comment**
-  
-  - `POST /post/addComments/:postId/:userId`
-  - **Params**: `postId`, `userId`
-  - **Body**: `{ comment: String }`
-  - **Description**: Adds a comment to a post.
-
-## Middleware
-
-- **Authentication Middleware**
-
-  - Used in routes to ensure that the user is authenticated. It checks if the user is logged in and has a valid session.
+- **Fetch Comments**: Get comments for a post from `/post/fetchComments/{postId}`.
+- **Add Comment**: Add a comment to a post by sending data to `/post/addComments/{postId}/{userId}`.
 
