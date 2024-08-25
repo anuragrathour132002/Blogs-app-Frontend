@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Add to your CSS file or inline styles if necessary */
+@media (max-width: 768px) {
+  .ant-card {
+      margin: 0 10px;
+  }
+  .ant-modal {
+      width: 90%;
+  }
+}
