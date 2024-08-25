@@ -2,8 +2,8 @@
 1. **Clone the Repository**
 
    ```bash
-   git clone 'https://github.com/Pranjal0981/Zupay-backend.git'
-   cd Zupay-backend
+   git clone 'https://github.com/anuragrathour132002/Blogs-app-Frontend'
+   cd backend
    ```
 
 2. **Install Dependencies**
